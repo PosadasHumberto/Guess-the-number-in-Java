@@ -46,6 +46,7 @@ public class PrincipalFrame extends javax.swing.JFrame {
 
         jLabel1.setText("Saisir un nombre entre 1 et 100 :");
 
+        livesScreen.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         livesScreen.setText("Tentatives restantes : ");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -126,8 +127,9 @@ public class PrincipalFrame extends javax.swing.JFrame {
                 validateButton.setEnabled(false);
             }
         } else if(userValue == valeur) {
-            resultatLabel.setText("Felicitations, vous avez trouvé la valeure aprés " + (5 - live) + " tentatives.");
+            resultatLabel.setText("Felicitations, vous avez trouvé la valeure aprés " + (live +1) + " tentatives.");
             validateButton.setEnabled(false);
+            livesScreen.setEnabled(false);
         }
         
         live++;
