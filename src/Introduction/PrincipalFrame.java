@@ -15,6 +15,7 @@ public class PrincipalFrame extends javax.swing.JFrame {
      */
     public PrincipalFrame() {
         initComponents();
+        initGame();
     }
 
     /**
@@ -26,6 +27,7 @@ public class PrincipalFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        groupRetry = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         inputValue = new javax.swing.JTextField();
         validateButton = new javax.swing.JButton();
@@ -34,6 +36,10 @@ public class PrincipalFrame extends javax.swing.JFrame {
         livesScreen = new javax.swing.JLabel();
         record = new javax.swing.JLabel();
         recordShow = new javax.swing.JLabel();
+        retryPanel = new javax.swing.JPanel();
+        retry = new javax.swing.JRadioButton();
+        noRetry = new javax.swing.JRadioButton();
+        radioValidate = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,9 +61,63 @@ public class PrincipalFrame extends javax.swing.JFrame {
         jLabel1.setText("Saisir un nombre entre 1 et 100 :");
 
         livesScreen.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        livesScreen.setText("Tentatives restantes : ");
+        livesScreen.setText("Tentatives restantes : 5");
 
         record.setText("valeurs saisies :");
+
+        retryPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(" Rejouer ?"));
+
+        retry.setText("Oui");
+        retry.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                retryActionPerformed(evt);
+            }
+        });
+
+        noRetry.setText("Non");
+        noRetry.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                noRetryActionPerformed(evt);
+            }
+        });
+
+        radioValidate.setText("Valider");
+        radioValidate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioValidateActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout retryPanelLayout = new javax.swing.GroupLayout(retryPanel);
+        retryPanel.setLayout(retryPanelLayout);
+        retryPanelLayout.setHorizontalGroup(
+            retryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(retryPanelLayout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addGroup(retryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(retryPanelLayout.createSequentialGroup()
+                        .addComponent(retry)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(retryPanelLayout.createSequentialGroup()
+                        .addComponent(noRetry)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 171, Short.MAX_VALUE)
+                        .addComponent(radioValidate)
+                        .addGap(42, 42, 42))))
+        );
+        retryPanelLayout.setVerticalGroup(
+            retryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(retryPanelLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(retry)
+                .addGroup(retryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(retryPanelLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(noRetry))
+                    .addGroup(retryPanelLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(radioValidate)))
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -68,26 +128,34 @@ public class PrincipalFrame extends javax.swing.JFrame {
                 .addComponent(inputValue, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addComponent(validateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 48, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(livesScreen, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29))
+                .addGap(0, 63, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(resultatLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(23, 23, 23)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(livesScreen, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jLabel1))
+                        .addContainerGap()
+                        .addComponent(resultatLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(82, 82, 82)
-                        .addComponent(record, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(recordShow, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(62, 62, 62)
+                                .addComponent(retryPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(35, 35, 35)
+                                .addComponent(record, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(recordShow, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -98,15 +166,17 @@ public class PrincipalFrame extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(inputValue, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(validateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(resultatLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(record, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(recordShow, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(livesScreen, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(retryPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -122,16 +192,37 @@ public class PrincipalFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void initGame() {
+        //cette fonction va permettre de reinitialiser toutes les variables necessaires pour lancer le jeu
+        valeur = (int)(Math.random()*100);
+        live = 0;
+        filDariane = "";
+        choice = true;
+        groupRetry.add(retry);
+        groupRetry.add(noRetry);
+        groupRetry.add(radioValidate);
+        retry.setSelected(true);
+        radioValidate.setEnabled(false);
+        inputValue.setText("");
+        validateButton.setEnabled(true);
+        inputValue.setEditable(true);
+        livesScreen.setEnabled(true);
+        livesScreen.setText("Tentatives restantes : 5");
+        recordShow.setText("");
+        resultatLabel.setText("");
+    }
+    
     int valeur = (int)(Math.random()*100);
     int live = 0;
     String filDariane = "";
+    private boolean choice = true;
     private void validateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_validateButtonActionPerformed
         play();
     }//GEN-LAST:event_validateButtonActionPerformed
@@ -142,8 +233,26 @@ public class PrincipalFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_inputValueKeyReleased
 
+    private void retryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_retryActionPerformed
+        choice = true;
+    }//GEN-LAST:event_retryActionPerformed
+
+    private void noRetryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noRetryActionPerformed
+        choice = false;
+    }//GEN-LAST:event_noRetryActionPerformed
+
+    private void radioValidateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioValidateActionPerformed
+        if(choice) {
+            //rejouer
+            initGame();
+        }else {
+            System.exit(0);//quitter l'application
+        }
+    }//GEN-LAST:event_radioValidateActionPerformed
+
     private void play(){
-        int userValue = Integer.parseInt(inputValue.getText());
+        int userValue = Integer.parseInt(inputValue.getText());     //recupere la saisie de l'utilisateur dans le TextField inputValue
+        inputValue.setText("");                                    //vider le contenu du TextField inputValue
         filDariane = filDariane + (Integer.toString(userValue) + " -> ");
         recordShow.setText(filDariane);
         if(userValue < valeur) {
@@ -151,17 +260,22 @@ public class PrincipalFrame extends javax.swing.JFrame {
             if(live == 4){
                 resultatLabel.setText("Perdu, vous n'avez plus de tentatives. La valeur cherchée etait " + valeur);
                 validateButton.setEnabled(false);
+                inputValue.setEditable(false);
+                radioValidate.setEnabled(true);
             }
         } else if(userValue > valeur) {
             resultatLabel.setText("Votre valeure est superieure.");
             if(live == 4){
                 resultatLabel.setText("Perdu, vous n'avez plus de tentatives. La valeur cherchée etait " + valeur);
                 validateButton.setEnabled(false);
+                inputValue.setEditable(false);
+                radioValidate.setEnabled(true);
             }
         } else if(userValue == valeur) {
             resultatLabel.setText("Felicitations, vous avez trouvé la valeure aprés " + (live +1) + " tentatives.");
             validateButton.setEnabled(false);
             livesScreen.setEnabled(false);
+            radioValidate.setEnabled(true);
         }
         
         live++;
@@ -203,13 +317,18 @@ public class PrincipalFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup groupRetry;
     private javax.swing.JTextField inputValue;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel livesScreen;
+    private javax.swing.JRadioButton noRetry;
+    private javax.swing.JButton radioValidate;
     private javax.swing.JLabel record;
     private javax.swing.JLabel recordShow;
     private javax.swing.JLabel resultatLabel;
+    private javax.swing.JRadioButton retry;
+    private javax.swing.JPanel retryPanel;
     private javax.swing.JButton validateButton;
     // End of variables declaration//GEN-END:variables
 }
