@@ -212,7 +212,7 @@ public class PrincipalFrame extends javax.swing.JFrame {
         radioValidate.setEnabled(false);
         inputValue.setText("");
         validateButton.setEnabled(true);
-        inputValue.setEditable(true);
+        inputValue.setEnabled(true);
         livesScreen.setEnabled(true);
         livesScreen.setText("Tentatives restantes : 5");
         recordShow.setText("");
@@ -260,7 +260,7 @@ public class PrincipalFrame extends javax.swing.JFrame {
             if(live == 4){
                 resultatLabel.setText("Perdu, vous n'avez plus de tentatives. La valeur cherchée etait " + valeur);
                 validateButton.setEnabled(false);
-                inputValue.setEditable(false);
+                inputValue.setEnabled(false);
                 radioValidate.setEnabled(true);
             }
         } else if(userValue > valeur) {
@@ -268,7 +268,7 @@ public class PrincipalFrame extends javax.swing.JFrame {
             if(live == 4){
                 resultatLabel.setText("Perdu, vous n'avez plus de tentatives. La valeur cherchée etait " + valeur);
                 validateButton.setEnabled(false);
-                inputValue.setEditable(false);
+                inputValue.setEnabled(false);
                 radioValidate.setEnabled(true);
             }
         } else if(userValue == valeur) {
@@ -276,6 +276,7 @@ public class PrincipalFrame extends javax.swing.JFrame {
             validateButton.setEnabled(false);
             livesScreen.setEnabled(false);
             radioValidate.setEnabled(true);
+            inputValue.setEnabled(false);
         }
         
         live++;
