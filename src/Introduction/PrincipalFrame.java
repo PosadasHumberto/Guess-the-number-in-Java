@@ -126,7 +126,7 @@ public class PrincipalFrame extends javax.swing.JFrame {
                 validateButton.setEnabled(false);
             }
         } else if(userValue == valeur) {
-            resultatLabel.setText("Felicitations, vous avez trouvé la valeure");
+            resultatLabel.setText("Felicitations, vous avez trouvé la valeure aprés " + (5 - live) + " tentatives.");
             validateButton.setEnabled(false);
         }
         
