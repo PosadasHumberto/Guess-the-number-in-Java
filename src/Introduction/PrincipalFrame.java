@@ -133,7 +133,16 @@ public class PrincipalFrame extends javax.swing.JFrame {
     int live = 0;
     String filDariane = "";
     private void validateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_validateButtonActionPerformed
-        //saisir la valeur au clavier
+        play();
+    }//GEN-LAST:event_validateButtonActionPerformed
+
+    private void inputValueKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputValueKeyReleased
+        if(evt.getKeyCode() == 10) {
+            play();
+        }
+    }//GEN-LAST:event_inputValueKeyReleased
+
+    private void play(){
         int userValue = Integer.parseInt(inputValue.getText());
         filDariane = filDariane + (Integer.toString(userValue) + " -> ");
         recordShow.setText(filDariane);
@@ -157,36 +166,7 @@ public class PrincipalFrame extends javax.swing.JFrame {
         
         live++;
         livesScreen.setText("Tentatives restantes : " + (5 - live));
-    }//GEN-LAST:event_validateButtonActionPerformed
-
-    private void inputValueKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputValueKeyReleased
-        if(evt.getKeyCode() == 10) {
-                    int userValue = Integer.parseInt(inputValue.getText());
-        filDariane = filDariane + (Integer.toString(userValue) + " -> ");
-        recordShow.setText(filDariane);
-        if(userValue < valeur) {
-            resultatLabel.setText("Votre valeure est inferieure.");
-            if(live == 4){
-                resultatLabel.setText("Perdu, vous n'avez plus de tentatives. La valeur cherchée etait " + valeur);
-                validateButton.setEnabled(false);
-            }
-        } else if(userValue > valeur) {
-            resultatLabel.setText("Votre valeure est superieure.");
-            if(live == 4){
-                resultatLabel.setText("Perdu, vous n'avez plus de tentatives. La valeur cherchée etait " + valeur);
-                validateButton.setEnabled(false);
-            }
-        } else if(userValue == valeur) {
-            resultatLabel.setText("Felicitations, vous avez trouvé la valeure aprés " + (live +1) + " tentatives.");
-            validateButton.setEnabled(false);
-            livesScreen.setEnabled(false);
-        }
-        
-        live++;
-        livesScreen.setText("Tentatives restantes : " + (5 - live));
-        }
-    }//GEN-LAST:event_inputValueKeyReleased
-
+    }
     /**
      * @param args the command line arguments
      */
